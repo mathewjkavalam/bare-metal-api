@@ -3,6 +3,7 @@ from http.server import HTTPServer, BaseHTTPRequestHandler
 from urllib.parse import urlparse, parse_qs
 
 PORT = 5000
+state_tick = 0
 
 class ApiRequestHandler(BaseHTTPRequestHandler):
 
@@ -73,23 +74,41 @@ class API():
 
 api = API()
 
-example_data = {
+example_data0 = {
     "items": [
-        { "id": 1000, "name": "cat", "description": "cat is meowing" },
-        { "id": 1001, "name": "dog", "description": "dog is barking" },
-        { "id": 1002, "name": "bird", "description": "bird is singing" }
+        { "id": 1, "name": "A", "amount": 10, "date":"01-01-2025"},
+        { "id": 2, "name": "B", "amount": 0, "date":"01-01-2025"},
+        { "id": 3, "name": "C", "amount": 30, "date":"01-01-2025"},
+        { "id": 4, "name": "D", "amount": 40, "date":"01-01-2025"}
+    ]
+}
+example_data1 = {
+    "items": [
+        { "id": 1, "name": "A", "amount": 20, "date":"02-01-2025"},
+        { "id": 2, "name": "B", "amount": 20, "date":"02-01-2025"},
+        { "id": 3, "name": "C", "amount": 30, "date":"02-01-2025"},
+        { "id": 4, "name": "D", "amount": 40, "date":"02-01-2025"}
+    ]
+}
+example_data2 = {
+    "items": [
+        { "id": 1, "name": "A", "amount": 30, "date":"03-01-2025"},
+        { "id": 2, "name": "B", "amount": 20, "date":"03-01-2025"},
+        { "id": 3, "name": "C", "amount": 30, "date":"03-01-2025"},
+        { "id": 4, "name": "D", "amount": 40, "date":"03-01-2025"}
     ]
 }
 
 @api.get("/")
 def index(_):
-    return {
-        "name": "Python REST API Example",
-        "summary": "This is simple REST API architecture with pure Python",
-        "actions": [ "add", "delete", "list", "search" ],
-        "version": "1.0.0"
-    }
+    global state_tick
+    return_values = [example_data0,example_data1,example_data2]
+    return return_values[state_tick] 
 
+@api.get("/tick")
+def state_tick_plus_1(_):
+    global state_tick
+    state_tick = state_tick + 1
 
 @api.get("/list")
 def list(_):
