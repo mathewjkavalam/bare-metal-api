@@ -108,7 +108,7 @@ def index(_):
 @api.get("/tick")
 def state_tick_plus_1(_):
     global state_tick
-    state_tick = state_tick + 1
+    state_tick = (state_tick + 1) % 3
 
 @api.get("/list")
 def list(_):
