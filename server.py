@@ -98,11 +98,26 @@ example_data2 = {
         { "id": 4, "name": "D", "amount": 40, "date":"03-01-2025"}
     ]
 }
-
+example_data3 = {
+    "items": [
+        { "id": 1, "name": "A", "amount": 30, "date":"03-01-2025"},
+        { "id": 2, "name": "B", "amount": 20, "date":"03-01-2025"},
+        { "id": 3, "name": "C", "amount": 30, "date":"03-01-2025"},
+        { "id": 4, "name": "D", "amount": 40, "date":"03-01-2026"}
+    ]
+}
+example_data4 = {
+    "items": [
+        { "id": 1, "name": "A", "amount": 30, "date":"03-01-2025"},
+        { "id": 2, "name": "B", "amount": 20, "date":"03-01-2025"},
+        { "id": 3, "name": "C", "amount": 30, "date":"03-01-2027"},
+        { "id": 4, "name": "D", "amount": 40, "date":"03-01-2025"}
+    ]
+}
 @api.get("/")
 def index(_):
     global state_tick
-    return_values = [example_data0,example_data1,example_data2]
+    return_values = [example_data0,example_data1,example_data2,example_data3,example_data4]
     return return_values[state_tick] 
 
 @api.get("/tick")
