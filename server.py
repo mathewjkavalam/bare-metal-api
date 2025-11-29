@@ -110,7 +110,7 @@ example_data2 = {
 @api.get("/")
 def index(_):
     global state_tick
-    return_values = [example_data0,example_data1,example_data2,example_data3,example_data4]
+    return_values = [example_data0,example_data1,example_data2]
     return return_values[state_tick] 
 
 @api.get("/tick")
