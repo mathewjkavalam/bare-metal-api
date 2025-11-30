@@ -76,14 +76,14 @@ api = API()
 
 example_data0 = {
     "items": [
-        { "id": 1, "name": "A", "amount": 100, "date":"01-01-2025"},
+        { "id": 1, "name": "A", "amount": 0, "date":"01-01-2025"},
         { "id": 2, "name": "B", "amount": 0, "date":"01-01-2025"},
         { "id": 3, "name": "C", "amount": 30, "date":"01-01-2025"},
         { "id": 4, "name": "D", "amount": 40, "date":"01-01-2025"},
         { "id": 1, "name": "A", "amount": 30, "date":"03-01-2025"},
         { "id": 2, "name": "B", "amount": 20, "date":"03-01-2025"},
         { "id": 3, "name": "C", "amount": 30, "date":"03-01-2027"},
-        { "id": 4, "name": "D", "amount": 40, "date":"03-01-2025"},
+        { "id": 4, "name": "D", "amount": 100, "date":"03-01-2025"},
         { "id": 1, "name": "A", "amount": 30, "date":"03-01-2025"},
         { "id": 2, "name": "B", "amount": 20, "date":"03-01-2025"},
         { "id": 3, "name": "C", "amount": 30, "date":"03-01-2025"},
